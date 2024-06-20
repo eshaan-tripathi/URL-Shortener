@@ -5,8 +5,9 @@ const urlConverter = require('./Controllers/url');
 const ejs = require('ejs');
 const Url = require('./Models/url'); // Ensure the path to Url model is correct
 const bodyParser = require('body-parser');
+require('dotenv').config(); // Load environment variables from .env file
 
-connect('mongodb://localhost:27017'); // Ensure MongoDB is running and accessible
+connect(process.env.MONGODB_URI); // Use MongoDB URI from environment variables
 
 app.set('view engine', 'ejs');
 app.set('views', './Views');
@@ -46,7 +47,7 @@ app.get('/:shortUrl', async (req, res) => {
     }
 });
 
-
-app.listen(3000, () => {
-    console.log('Server Started at port 3000');
+const PORT = process.env.PORT || 3000; // Use port from environment variables or default to 3000
+app.listen(PORT, () => {
+    console.log(`Server Started at port ${PORT}`);
 });
