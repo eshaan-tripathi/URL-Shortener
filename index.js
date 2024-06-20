@@ -47,7 +47,7 @@ app.get('/:shortUrl', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000; // Use port from environment variables or default to 3000
+const PORT = process.env.PORT ;
 app.listen(PORT, () => {
     console.log(`Server Started at port ${PORT}`);
-});
+})
