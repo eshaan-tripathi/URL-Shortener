@@ -8,8 +8,16 @@
     ],
     "routes": [
       {
+        "src": "/urlgenerate",
+        "dest": "/index.js"
+      },
+      {
+        "src": "/:shortUrl",
+        "dest": "/index.js"
+      },
+      {
         "src": "/(.*)",
-        "dest": "server.js"
+        "dest": "/index.js"
       }
     ]
   }
