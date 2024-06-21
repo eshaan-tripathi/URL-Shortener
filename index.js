@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home.ejs');
 });
 
 app.post('/urlgenerate', async (req, res) => {
@@ -25,9 +25,9 @@ app.post('/urlgenerate', async (req, res) => {
     const resp = await urlConverter(input);
 
     if (resp) {
-        res.render('result', { shortUrl: resp.shortUrl });
+        res.render('result.ejs', { shortUrl: resp.shortUrl });
     } else {
-        res.render('error', { message: 'Failed to generate short URL.' });
+        res.render('error.ejs', { message: 'Failed to generate short URL.' });
     }
 });
 
