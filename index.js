@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const connect = require('./connect');
 const bodyParser = require('body-parser');
-const urlgenerate = require('./Routes/urlgenerate');
-const shortUrl = require('./Routes/shortUrl');
+const urlgenerate = require('./routes/urlgenerate');
+const shortUrl = require('./routes/shortUrl');
 
 require('dotenv').config();
 connect(process.env.MONGODB_URI);
